@@ -39,6 +39,7 @@ Xinfeng Li, Chen Yan, **Xuancun Lu**, Zihan Zeng, Xiaoyu Ji, Wenyuan Xu
 - We propose VRIFLE, an inaudible adversarial perturbation (IAP) attack via ultrasound delivery that can manipulate ASRs as a user speaks. 
 - Github https://github.com/LetterLiGo/Adversarial_Audio_Attack-VRifle
 </div>
+</div>
 
 <div class='paper-box'><div class='paper-box-image'><div><div class="badge">WWW 2024</div><img src='images/IAP-500x300.png' alt="sym" width="100%"></div></div>
 <div class='paper-box-text' markdown="1">
@@ -52,7 +53,7 @@ Zizhi Jin, **Xuancun Lu**, Bo Yang,Yushi Chen, Chen Yan, Xiaoyu Ji, Wenyuan Xu
 - Homepage https://zjushine.github.io/PSA-Fusion/
 - Github https://github.com/Jinzizhisir/PSAFusion
 </div>
-
+</div>
 
 # 📖 Educations
 - *2023.06 - now*, PhD, USSLAB, EE College, Zhejiang Univeristy, Hangzhou.
