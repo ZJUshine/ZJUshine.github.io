@@ -19,7 +19,7 @@ redirect_from:
 
 I graduated from EE College, Zhejiang University (浙江大学电气学院) with a bachelor’s degree and now studying for PhD in <a href="http://usslab.org">USSLAB</a>
 
-My research interest includes security of voice and automatic drive. I have published 1 paper at the big 4 <a href='https://scholar.google.com/citations?user=cz6jVd0AAAAJ'>google scholar citations <strong><span id='total_cit'>260000+</span></strong></a> (You can also use google scholar badge <a href='https://scholar.google.com/citations?user=cz6jVd0AAAAJ'><img src="https://img.shields.io/endpoint?url={{ url | url_encode }}&logo=Google%20Scholar&labelColor=f6f6f6&color=9cf&style=flat&label=citations"></a>).
+My research interest includes security of voice and automatic drive. I have published 2 paper at the CCFA <a href='https://scholar.google.com/citations?user=cz6jVd0AAAAJ'>google scholar citations <strong><span id='total_cit'>1+</span></strong></a> (You can also use google scholar badge <a href='https://scholar.google.com/citations?user=cz6jVd0AAAAJ'><img src="https://img.shields.io/endpoint?url={{ url | url_encode }}&logo=Google%20Scholar&labelColor=f6f6f6&color=9cf&style=flat&label=citations"></a>).
 
 
 # 🔥 News
