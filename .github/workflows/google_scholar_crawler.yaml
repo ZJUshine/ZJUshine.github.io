@@ -22,7 +22,7 @@ jobs:
         git init
         git config --local user.name "ZJUshine"
         git config --local user.email "zjushine@gmail.com"
-        export remote_repo="https://ZJUshine:${{ secrets.ZJUSHINE_TOKEN }}@github.com/ZJUshine.github.io.git"
+        export remote_repo="https://${{ secrets.ZJUSHINE_TOKEN }}@github.com/ZJUshine/ZJUshine.github.io.git"
         git add *.json
         git commit -m "Updated Citation Data"
         git push "${remote_repo}" HEAD:google-scholar-stats --force
