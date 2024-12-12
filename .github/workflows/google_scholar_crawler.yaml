@@ -1,0 +1,30 @@
+name: Get Citation Data
+
+on: 
+ page_build: 
+ schedule:
+  - cron:  '0 8 * * *'
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - name: Install Reqs
+      run: |
+        sudo apt-get install python3-setuptools
+    - name: Run
+      run: |
+        cd ./google_scholar_crawler
+        pip3 install -r requirements.txt
+        python3 main.py
+        cd ./results
+        git init
+        git config --local user.name "ZJUshine"
+        git config --local user.email "zjushine@gmail.com"
+        export remote_repo="https://${{ secrets.ZJUSHINE_TOKEN }}@github.com/ZJUshine/ZJUshine.github.io.git"
+        git add *.json
+        git commit -m "Updated Citation Data"
+        git push "${remote_repo}" HEAD:google-scholar-stats --force
+      env: 
+        GOOGLE_SCHOLAR_ID: ${{ secrets.GOOGLE_SCHOLAR_ID }}
