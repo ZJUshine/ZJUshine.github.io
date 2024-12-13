@@ -19,11 +19,10 @@ redirect_from:
 
 I graduated from EE College, Zhejiang University (浙江大学电气学院) with a bachelor’s degree and now studying for PhD in <a href="http://usslab.org">USSLAB</a>
 
-My research interest includes security of voice and automatic drive. I have published 3 paper at the CCFA <a href='https://scholar.google.com/citations?user=cz6jVd0AAAAJ'>google scholar citations <strong><span id='total_cit'>1+</span></strong></a> (You can also use google scholar badge <a href='https://scholar.google.com/citations?user=cz6jVd0AAAAJ'><img src="https://img.shields.io/endpoint?url={{ url | url_encode }}&logo=Google%20Scholar&labelColor=f6f6f6&color=9cf&style=flat&label=citations"></a>).
-
+My research interest includes security of voice and automatic drive. I have published 3 paper at the CCF-A conferences with total <a href='https://scholar.google.com/citations?user=cz6jVd0AAAAJ'>google scholar citations <strong><span id='total_cit'>7+</span></strong></a> (<a href='https://scholar.google.com/citations?user=cz6jVd0AAAAJ'><img src="https://img.shields.io/endpoint?url={{ url | url_encode }}&logo=Google%20Scholar&labelColor=f6f6f6&color=9cf&style=flat&label=citations"></a>).
 
 # 🔥 News
-- *2023.09*: &nbsp;🎉🎉 NDSS'24 Summer, Inaudible Adversarial Perturbation: Manipulating the Recognition of User Speech in Real Time. 
+- *2023.09*: &nbsp;🎉🎉 NDSS 2024, Inaudible Adversarial Perturbation: Manipulating the Recognition of User Speech in Real Time. 
 - *2024.01*: &nbsp;🎉🎉 WWW 2024, Unity is Strength? Benchmarking the Robustness of Fusion-based 3D Object Detection against Physical Sensor Attack.
 - *2024.09*: &nbsp;🎉🎉 NDSS 2025, PhantomLiDAR: Cross-modality Signal Injection Attacks against LiDAR.
 
