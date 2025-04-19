@@ -3,11 +3,12 @@ name: Get Citation Data
 on: 
  page_build: 
  schedule:
-  - cron:  '0 8 * * *'
+  - cron:  '00 8 * * *'
 
 jobs:
   build:
     runs-on: ubuntu-latest
+    timeout-minutes: 60
     steps:
     - uses: actions/checkout@v2
     - name: Install Reqs
@@ -21,7 +22,7 @@ jobs:
         cd ./results
         git init
         git config --local user.name "ZJUshine"
-        git config --local user.email "zjushine@gmail.com"
+        git config --local user.email "3190103641@zju.edu.cn"
         export remote_repo="https://${{ secrets.ZJUSHINE_TOKEN }}@github.com/ZJUshine/ZJUshine.github.io.git"
         git add *.json
         git commit -m "Updated Citation Data"
