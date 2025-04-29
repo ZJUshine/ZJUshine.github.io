@@ -6,9 +6,10 @@ import os
 
 # Setup proxy
 pg = ProxyGenerator()
-pg.FreeProxies()  # Use free rotating proxies
+# pg.FreeProxies()  # Use free rotating proxies
+pg.SingleProxy(http="http://user-usslab2013:db2013@pr.roxlabs.cn:4600")
 scholarly.use_proxy(pg)
-
+os.environ['GOOGLE_SCHOLAR_ID'] = 'cz6jVd0AAAAJ'
 author: dict = scholarly.search_author_id(os.environ['GOOGLE_SCHOLAR_ID'])
 scholarly.fill(author, sections=['basics', 'indices', 'counts', 'publications'])
 name = author['name']
