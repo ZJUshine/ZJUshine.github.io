@@ -51,7 +51,7 @@ Zizhi Jin, **Xuancun Lu**, Bo Yang,Yushi Chen, Chen Yan, Xiaoyu Ji, Wenyuan Xu
 [**Project**]() <strong><span class='show_paper_citations' data='DhtAFkwAAAAJ:ALROH1vI_8AC'></span></strong>
 - Our new benchmark features 5 types of LiDAR attacks and 6 types of camera attacks. Different from traditional benchmarks, we take the physical sensor attacks into consideration during the corruption construction. Then, we systematically investigate 7 MSF-based and 5 single-modality 3D object detection models with different fusion architectures.
 - Homepage https://zjushine.github.io/PSA-Fusion/
-- Github https://github.com/Jinzizhisir/PSAFusion
+- Github https://github.com/Jinzizhisir/PSA-Fusion/
 </div>
 </div>
 
