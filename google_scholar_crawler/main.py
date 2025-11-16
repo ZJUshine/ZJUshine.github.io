@@ -3,6 +3,7 @@ import jsonpickle
 import json
 from datetime import datetime
 import os
+import time
 
 # Setup proxy
 pg = ProxyGenerator()
@@ -13,15 +14,23 @@ pg.SingleProxy(http="http://user-usslab2013:db2013@pr.roxlabs.cn:4600", https="h
 scholarly.use_proxy(pg)
 os.environ['GOOGLE_SCHOLAR_ID'] = 'cz6jVd0AAAAJ'
 author = None
-for attempt in range(3):
+
+# 多次尝试获取作者信息
+max_retries = 5
+retry_delay = 2  # 秒
+for attempt in range(max_retries):
     try:
         author = scholarly.search_author_id(os.environ['GOOGLE_SCHOLAR_ID'])
         scholarly.fill(author, sections=['basics', 'indices', 'counts', 'publications'])
-        break
+        break  # 成功则退出循环
     except Exception as e:
-        if attempt == 2:
-            author = None
-        continue
+        if attempt < max_retries - 1:
+            print(f"尝试 {attempt + 1}/{max_retries} 失败: {e}，{retry_delay}秒后重试...")
+            time.sleep(retry_delay)
+        else:
+            print(f"所有 {max_retries} 次尝试均失败: {e}")
+            raise
+
 if author is not None:
     name = author.get('name', '')
     updated_time = str(datetime.now())
