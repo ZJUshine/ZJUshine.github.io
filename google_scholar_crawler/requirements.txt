@@ -1,3 +1,4 @@
 jsonpickle
 scholarly
+scholarly[tor]
 httpx==0.27.2
