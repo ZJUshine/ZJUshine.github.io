@@ -10,8 +10,8 @@ pg = ProxyGenerator()
 pg.Tor_Internal(tor_cmd="tor")
 scholarly.use_proxy(pg)
 
-scholarly.use_proxy(pg)
-os.environ['GOOGLE_SCHOLAR_ID'] = 'cz6jVd0AAAAJ'
+# 从环境变量获取 Scholar ID，如果未设置则使用默认值
+scholar_id = os.environ.get('GOOGLE_SCHOLAR_ID', 'cz6jVd0AAAAJ')
 author = None
 
 # 多次尝试获取作者信息
@@ -19,7 +19,7 @@ max_retries = 5
 retry_delay = 2  # 秒
 for attempt in range(max_retries):
     try:
-        author = scholarly.search_author_id(os.environ['GOOGLE_SCHOLAR_ID'])
+        author = scholarly.search_author_id(scholar_id)
         scholarly.fill(author, sections=['basics', 'indices', 'counts', 'publications'])
         break  # 成功则退出循环
     except Exception as e:
