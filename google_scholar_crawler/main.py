@@ -5,10 +5,18 @@ from datetime import datetime
 import os
 import time
 
-# Setup proxy
-pg = ProxyGenerator()
-pg.Tor_Internal(tor_cmd="tor")
-scholarly.use_proxy(pg)
+# Setup proxy using ScraperAPI
+scraper_api_key = os.environ.get('SCRAPER_API_KEY','43019212068df4f4851b40f33cf238fe')
+if scraper_api_key:
+    pg = ProxyGenerator()
+    success = pg.ScraperAPI(scraper_api_key)
+    if success:
+        scholarly.use_proxy(pg)
+        print("ScraperAPI proxy configured successfully")
+    else:
+        print("Warning: Failed to configure ScraperAPI proxy")
+else:
+    print("Warning: SCRAPER_API_KEY not set, running without proxy (may be rate limited)")
 
 # 从环境变量获取 Scholar ID，如果未设置则使用默认值
 scholar_id = os.environ.get('GOOGLE_SCHOLAR_ID', 'cz6jVd0AAAAJ')
