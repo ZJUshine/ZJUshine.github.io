@@ -1,57 +1,112 @@
-from scholarly import scholarly, ProxyGenerator
-import jsonpickle
+from serpapi import GoogleSearch
 import json
 from datetime import datetime
 import os
-import time
 
-# Setup proxy using ScraperAPI
-scraper_api_key = os.environ.get('SCRAPER_API_KEY','43019212068df4f4851b40f33cf238fe')
-if scraper_api_key:
-    pg = ProxyGenerator()
-    success = pg.ScraperAPI(scraper_api_key)
-    if success:
-        scholarly.use_proxy(pg)
-        print("ScraperAPI proxy configured successfully")
-    else:
-        print("Warning: Failed to configure ScraperAPI proxy")
-else:
-    print("Warning: SCRAPER_API_KEY not set, running without proxy (may be rate limited)")
-
-# 从环境变量获取 Scholar ID，如果未设置则使用默认值
+# 从环境变量获取配置
 scholar_id = os.environ.get('GOOGLE_SCHOLAR_ID', 'cz6jVd0AAAAJ')
+serpapi_key = os.environ.get('SERPAPI_KEY','9938fa8825ae54f488af513966a790e1a3697bbcb409cfce0ece552fa9e9228c')
+
+if not serpapi_key:
+    raise ValueError("SERPAPI_KEY environment variable is required")
+
 author = None
 
-# 多次尝试获取作者信息
-max_retries = 5
-retry_delay = 2  # 秒
-for attempt in range(max_retries):
-    try:
-        author = scholarly.search_author_id(scholar_id)
-        scholarly.fill(author, sections=['basics', 'indices', 'counts', 'publications'])
-        break  # 成功则退出循环
-    except Exception as e:
-        if attempt < max_retries - 1:
-            print(f"尝试 {attempt + 1}/{max_retries} 失败: {e}，{retry_delay}秒后重试...")
-            time.sleep(retry_delay)
-        else:
-            print(f"所有 {max_retries} 次尝试均失败: {e}")
-            raise
+try:
+    # 获取作者基本信息和引用统计
+    params = {
+        "engine": "google_scholar_author",
+        "author_id": scholar_id,
+        "api_key": serpapi_key
+    }
+    search = GoogleSearch(params)
+    results = search.get_dict()
+
+    if "error" in results:
+        raise Exception(results["error"])
+
+    author_info = results.get("author", {})
+    cited_by = results.get("cited_by", {})
+
+    # 获取所有文章（处理分页）
+    all_articles = []
+    start = 0
+    while True:
+        params_articles = {
+            "engine": "google_scholar_author",
+            "author_id": scholar_id,
+            "api_key": serpapi_key,
+            "start": start,
+            "num": 100
+        }
+        search_articles = GoogleSearch(params_articles)
+        articles_results = search_articles.get_dict()
+
+        articles = articles_results.get("articles", [])
+        if not articles:
+            break
+        all_articles.extend(articles)
+        start += len(articles)
+
+        # 安全限制，防止无限循环
+        if start >= 1000:
+            break
+
+    # 构建兼容 scholarly 格式的 author 对象
+    author = {
+        "name": author_info.get("name", ""),
+        "affiliation": author_info.get("affiliations", ""),
+        "email_domain": author_info.get("email", ""),
+        "interests": [interest.get("title", "") for interest in author_info.get("interests", [])],
+        "citedby": cited_by.get("table", [{}])[0].get("citations", {}).get("all", 0),
+        "citedby5y": cited_by.get("table", [{}])[0].get("citations", {}).get("since_2020", 0),
+        "hindex": cited_by.get("table", [{}])[1].get("h_index", {}).get("all", 0),
+        "hindex5y": cited_by.get("table", [{}])[1].get("h_index", {}).get("since_2020", 0),
+        "i10index": cited_by.get("table", [{}])[2].get("i10_index", {}).get("all", 0),
+        "i10index5y": cited_by.get("table", [{}])[2].get("i10_index", {}).get("since_2020", 0),
+        "cites_per_year": {str(item["year"]): item["citations"] for item in cited_by.get("graph", [])},
+        "scholar_id": scholar_id,
+        "url_picture": author_info.get("thumbnail", ""),
+    }
+
+    # 转换文章格式
+    publications = []
+    for article in all_articles:
+        pub = {
+            "author_pub_id": f"{scholar_id}:{article.get('citation_id', '')}",
+            "bib": {
+                "title": article.get("title", ""),
+                "citation": article.get("authors", ""),
+                "pub_year": str(article.get("year", "")),
+            },
+            "num_citations": article.get("cited_by", {}).get("value", 0),
+            "citedby_url": article.get("cited_by", {}).get("link", ""),
+            "pub_url": article.get("link", ""),
+        }
+        publications.append(pub)
+
+    author["publications"] = publications
+
+    print(json.dumps(author, indent=2))
+
+except Exception as e:
+    print(f"Error: {e}")
+    raise
 
 if author is not None:
     name = author.get('name', '')
     updated_time = str(datetime.now())
     publications = author.get('publications', [])
     publications_dict = {v.get('author_pub_id', f'pub_{i}'): v for i, v in enumerate(publications)} if isinstance(publications, list) else {}
-    print(json.dumps(author, indent=2))
+
     os.makedirs('results', exist_ok=True)
-    with open(f'results/gs_data.json', 'w') as outfile:
+    with open('results/gs_data.json', 'w') as outfile:
         json.dump({**author, 'updated': updated_time, 'publications': publications_dict}, outfile, ensure_ascii=False)
 
     shieldio_data = {
-      "schemaVersion": 1,
-      "label": "citations",
-      "message": f"{author.get('citedby', 0)}",
+        "schemaVersion": 1,
+        "label": "citations",
+        "message": f"{author.get('citedby', 0)}",
     }
-    with open(f'results/gs_data_shieldsio.json', 'w') as outfile:
+    with open('results/gs_data_shieldsio.json', 'w') as outfile:
         json.dump(shieldio_data, outfile, ensure_ascii=False)
