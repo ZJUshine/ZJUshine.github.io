@@ -3,9 +3,42 @@ import json
 from datetime import datetime
 import os
 
+
+def get_metric(table, *metric_names):
+    if not isinstance(table, list):
+        return {}
+    for row in table:
+        if not isinstance(row, dict):
+            continue
+        for metric_name in metric_names:
+            metric = row.get(metric_name)
+            if isinstance(metric, dict):
+                return metric
+    return {}
+
+
+def get_recent_value(metric):
+    if not isinstance(metric, dict):
+        return 0
+    for key, value in metric.items():
+        if key != "all":
+            return value
+    return 0
+
+
+def get_cites_per_year(graph):
+    if not isinstance(graph, list):
+        return {}
+    return {
+        str(item["year"]): item["citations"]
+        for item in graph
+        if isinstance(item, dict) and "year" in item and "citations" in item
+    }
+
+
 # 从环境变量获取配置
 scholar_id = os.environ.get('GOOGLE_SCHOLAR_ID', 'cz6jVd0AAAAJ')
-serpapi_key = os.environ.get('SERPAPI_KEY','9938fa8825ae54f488af513966a790e1a3697bbcb409cfce0ece552fa9e9228c')
+serpapi_key = os.environ.get('SERPAPI_KEY', '9938fa8825ae54f488af513966a790e1a3697bbcb409cfce0ece552fa9e9228c')
 
 if not serpapi_key:
     raise ValueError("SERPAPI_KEY environment variable is required")
@@ -17,6 +50,7 @@ try:
     params = {
         "engine": "google_scholar_author",
         "author_id": scholar_id,
+        "hl": "en",
         "api_key": serpapi_key
     }
     search = GoogleSearch(params)
@@ -27,6 +61,10 @@ try:
 
     author_info = results.get("author", {})
     cited_by = results.get("cited_by", {})
+    cited_by_table = cited_by.get("table", [])
+    citations = get_metric(cited_by_table, "citations")
+    h_index = get_metric(cited_by_table, "h_index", "indice_h")
+    i10_index = get_metric(cited_by_table, "i10_index", "indice_i10")
 
     # 获取所有文章（处理分页）
     all_articles = []
@@ -36,6 +74,7 @@ try:
             "engine": "google_scholar_author",
             "author_id": scholar_id,
             "api_key": serpapi_key,
+            "hl": "en",
             "start": start,
             "num": 100
         }
@@ -58,13 +97,13 @@ try:
         "affiliation": author_info.get("affiliations", ""),
         "email_domain": author_info.get("email", ""),
         "interests": [interest.get("title", "") for interest in author_info.get("interests", [])],
-        "citedby": cited_by.get("table", [{}])[0].get("citations", {}).get("all", 0),
-        "citedby5y": cited_by.get("table", [{}])[0].get("citations", {}).get("since_2020", 0),
-        "hindex": cited_by.get("table", [{}])[1].get("h_index", {}).get("all", 0),
-        "hindex5y": cited_by.get("table", [{}])[1].get("h_index", {}).get("since_2020", 0),
-        "i10index": cited_by.get("table", [{}])[2].get("i10_index", {}).get("all", 0),
-        "i10index5y": cited_by.get("table", [{}])[2].get("i10_index", {}).get("since_2020", 0),
-        "cites_per_year": {str(item["year"]): item["citations"] for item in cited_by.get("graph", [])},
+        "citedby": citations.get("all", 0),
+        "citedby5y": get_recent_value(citations),
+        "hindex": h_index.get("all", 0),
+        "hindex5y": get_recent_value(h_index),
+        "i10index": i10_index.get("all", 0),
+        "i10index5y": get_recent_value(i10_index),
+        "cites_per_year": get_cites_per_year(cited_by.get("graph", [])),
         "scholar_id": scholar_id,
         "url_picture": author_info.get("thumbnail", ""),
     }
