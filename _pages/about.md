@@ -31,25 +31,25 @@ My research interest includes the embodied AI security and safety. I have publis
 
 # 📝 Publications 
 
-<div class='paper-box'><div class='paper-box-image'><div><div class="badge">NDSS 2027</div><img src='images/POEF.pdf' alt="sym" width="100%"></div></div>
+<div class='paper-box'><div class='paper-box-image'><div><div class="badge">NDSS 2027</div><img src='images/POEF.png' alt="sym" width="100%"></div></div>
 <div class='paper-box-text' markdown="1">
 
 <div class="paper-title">Easier Said Than Done: Unpacking Intent–Behavior Gap in Jailbreaking LLM-based Robot</div>
 
 **Xuancun Lu**, Zhengxian Huang, Xinfeng Li, Chi Zhang, Xiaoyu Ji, Wenyuan Xu
 
-- TBD.
+- LLM-based robots use Large Language Models (LLMs) as planners to translate natural language instructions into policies such as `grasp()`, `move_to()`, and `open_gripper()`. Jailbreak attacks on these robots extend the threat from *generating malicious content* to *executing harmful behaviors*. However, we find that existing jailbreak attempts against LLM-based robots produce malicious-looking policies (*intent jailbreaks*) often fail to induce harmful robot physical executions (*behavior jailbreaks*), due to the robot-specific constraints, such as logical errors, hallucinated control APIs, etc. In this paper, we demystify the intent-behavior gap and investigate its root causes to inform effective defenses. Our measurement study finds that current LLM jailbreak methods overlook robot-specific syntax constraints (e.g., executable control APIs) and physical feasibility (e.g., orders of policies and hardware/kinematic constraints). To bridge the gap, we introduce POEF (**PO**licy **EF**fective Jailbreak), an automated red-teaming framework that takes into account the robot-specific constraints during both the optimization and evaluation process. Specifically, POEF employs the hidden-layer gradients from an unaligned LLM to guide the jailbreak prompt optimization and uses a multi-agent evaluator to assess the feasibility of the generated policies. Experiments on commercial robots, including the Unitree G1, the Franka robotic arm, and simulators, show that POEF achieves an 80% behavior jailbreak success rate and transfers across various LLMs. In addition, we propose two defense strategies that mitigate the behavior jailbreak risks. Our findings indicate an urgent need for stronger countermeasures before LLM-based robots are deployed at scale.
 </div>
 </div>
 
-<div class='paper-box'><div class='paper-box-image'><div><div class="badge">CCS 2026</div><img src='images/GhostTac.pdf' alt="sym" width="100%"></div></div>
+<div class='paper-box'><div class='paper-box-image'><div><div class="badge">CCS 2026</div><img src='images/GhostTac.png' alt="sym" width="100%"></div></div>
 <div class='paper-box-text' markdown="1">
 
 <div class="paper-title">GhostTac: Manipulating Tactile Sensors without Physical Contact</div>
 
 Kun Wang, **Xuancun Lu**, Ruochen Zhou, Kai Wang, Tongjun Ye, Yihao Shao, Chen Yan, Xiaoyu Ji, Wenyuan Xu
 
-- TBD.
+- Tactile sensors are integral components of modern robotic systems, enabling robots to perceive and interact with the physical environment through tactile feedback. Despite their importance, the physical-layer security of tactile sensors has received little attention in prior work. In this paper, we present GhostTac, to the best of our knowledge, the first contactless attack that manipulates tactile sensing via electromagnetic interference (EMI). We identify that EMI exploits the nonlinear rectification and limited bandwidth amplification effects, allowing carefully crafted EMI signals to be converted into a persistent DC offset that bypasses on-board filtering and induces stable measurement deviations. Building on this mechanism, GhostTac enables fine-grained and controllable manipulation of sensor outputs by reshaping the spatial distribution and manipulating the magnitude at the targeted location. Such interference can induce unintended and harmful robot behaviors, such as causing a domestic robot to exert excessive force, resulting in physical damage or human injury. We evaluate GhostTac on 10 sensor modules and 2 dexterous hands, covering 15 tactile sensors of different types, and demonstrate consistent attack effectiveness across all tested devices. We further present three case studies on tactile grasping, slip detection, and material classification to illustrate practical impacts in real robotic tasks. We envision that our findings shed light on a new physical attack vector against tactile sensing in robotic systems.
 </div>
 </div>
 
