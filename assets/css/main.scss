@@ -146,6 +146,11 @@ $btn-transition:  all .3s cubic-bezier(.4, 0, .2, 1);
             font-size: 1.05em;
             line-height: 1;
         }
+
+        // academicons glyphs (e.g. arXiv) draw smaller than Font Awesome's
+        .ai {
+            font-size: 1.25em;
+        }
     }
 
     @media (max-width: 480px) {
