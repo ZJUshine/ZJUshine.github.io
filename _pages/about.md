@@ -22,12 +22,36 @@ I graduated from EE College, Zhejiang University (浙江大学电气学院) with
 My research interest includes the embodied AI security and safety. I have published 6 paper at the CCF-A conferences with total <a href='https://scholar.google.com/citations?user=cz6jVd0AAAAJ'><img src="https://img.shields.io/endpoint?url={{ url | url_encode }}&logo=Google%20Scholar&labelColor=f6f6f6&color=9cf&style=flat&label=citations"></a>.
 
 # 🔥 News
+- *2026.07*: &nbsp;🎉🎉 NDSS 2027, Easier Said Than Done: Unpacking Intent–Behavior Gap in Jailbreaking LLM-based Robot.
+- *2026.04*: &nbsp;🎉🎉 CCS 2026, GhostTac: Manipulating Tactile Sensors without Physical Contact.
 - *2025.11*: &nbsp;🎉🎉 AAAI 2026, Phantom Menace: Exploring and Enhancing the Robustness of VLA Models against Physical Sensor Attacks.
 - *2024.09*: &nbsp;🎉🎉 NDSS 2025, PhantomLiDAR: Cross-modality Signal Injection Attacks against LiDAR.
 - *2024.01*: &nbsp;🎉🎉 WWW 2024, Unity is Strength? Benchmarking the Robustness of Fusion-based 3D Object Detection against Physical Sensor Attack.
 - *2023.09*: &nbsp;🎉🎉 NDSS 2024, Inaudible Adversarial Perturbation: Manipulating the Recognition of User Speech in Real Time. 
 
 # 📝 Publications 
+
+<div class='paper-box'><div class='paper-box-image'><div><div class="badge">NDSS 2027</div><img src='images/POEF.pdf' alt="sym" width="100%"></div></div>
+<div class='paper-box-text' markdown="1">
+
+<div class="paper-title">Easier Said Than Done: Unpacking Intent–Behavior Gap in Jailbreaking LLM-based Robot</div>
+
+**Xuancun Lu**, Zhengxian Huang, Xinfeng Li, Chi Zhang, Xiaoyu Ji, Wenyuan Xu
+
+- TBD.
+</div>
+</div>
+
+<div class='paper-box'><div class='paper-box-image'><div><div class="badge">CCS 2026</div><img src='images/GhostTac.pdf' alt="sym" width="100%"></div></div>
+<div class='paper-box-text' markdown="1">
+
+<div class="paper-title">GhostTac: Manipulating Tactile Sensors without Physical Contact</div>
+
+Kun Wang, **Xuancun Lu**, Ruochen Zhou, Kai Wang, Tongjun Ye, Yihao Shao, Chen Yan, Xiaoyu Ji, Wenyuan Xu
+
+- TBD.
+</div>
+</div>
 
 <div class='paper-box'><div class='paper-box-image'><div><div class="badge">AAAI 2026</div><img src='images/PhantomMenace.png' alt="sym" width="100%"></div></div>
 <div class='paper-box-text' markdown="1">
