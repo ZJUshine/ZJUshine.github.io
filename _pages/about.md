@@ -32,12 +32,12 @@ My research interest includes the embodied AI security and safety. I have publis
 <div class='paper-box'><div class='paper-box-image'><div><div class="badge">AAAI 2026</div><img src='images/PhantomMenace.png' alt="sym" width="100%"></div></div>
 <div class='paper-box-text' markdown="1">
 
-[Phantom Menace: Exploring and Enhancing the Robustness of VLA Models against Physical Sensor Attacks](https://arxiv.org/abs/2511.10008)
+<div class="paper-title">Phantom Menace: Exploring and Enhancing the Robustness of VLA Models against Physical Sensor Attacks</div>
 
 **Xuancun Lu**, Jiaxiang Chen, Shilin Xiao, Zizhi Jin, Zhangrui Chen, Hanwen Yu, Bohan Qian, Ruochen Zhou, Xiaoyu Ji, Wenyuan Xu
 
 <div class="paper-links">
-<a href="https://arxiv.org/abs/2511.10008"><i class="fas fa-file-pdf"></i>Paper</a>
+<a href="https://arxiv.org/abs/2511.10008"><i class="ai ai-arxiv"></i>Paper</a>
 <a href="https://ojs.aaai.org/index.php/AAAI/article/view/40881"><i class="fas fa-book"></i>Proceedings</a>
 <a href="https://github.com/ZJUshine/Phantom-Menace"><i class="fab fa-github"></i>Code</a>
 </div>
@@ -50,12 +50,12 @@ My research interest includes the embodied AI security and safety. I have publis
 <div class='paper-box'><div class='paper-box-image'><div><div class="badge">NDSS 2025</div><img src='images/PhantomLiDAR.png' alt="sym" width="100%"></div></div>
 <div class='paper-box-text' markdown="1">
 
-[PhantomLiDAR: Cross-modality Signal Injection Attacks against LiDAR](https://arxiv.org/abs/2409.17907)
+<div class="paper-title">PhantomLiDAR: Cross-modality Signal Injection Attacks against LiDAR</div>
 
 Zizhi Jin, Qinhong Jiang, **Xuancun Lu**, Chen Yan, Xiaoyu Ji, Wenyuan Xu
 
 <div class="paper-links">
-<a href="https://arxiv.org/abs/2409.17907"><i class="fas fa-file-pdf"></i>Paper</a>
+<a href="https://arxiv.org/abs/2409.17907"><i class="ai ai-arxiv"></i>Paper</a>
 <a href="https://sites.google.com/view/phantomlidar"><i class="fas fa-globe"></i>Homepage</a>
 </div>
 
@@ -68,7 +68,7 @@ intentional electromagnetic interference (IEMI) to manipulate LiDAR output. Our 
 <div class='paper-box'><div class='paper-box-image'><div><div class="badge">WWW 2024</div><img src='images/PSA-Fusion.png' alt="sym" width="100%"></div></div>
 <div class='paper-box-text' markdown="1">
 
-[Unity is Strength? Benchmarking the Robustness of Fusion-based 3D Object Detection against Physical Sensor Attack](https://zjushine.github.io/PSA-Fusion/)
+<div class="paper-title">Unity is Strength? Benchmarking the Robustness of Fusion-based 3D Object Detection against Physical Sensor Attack</div>
 
 Zizhi Jin, **Xuancun Lu**, Bo Yang,Yushi Chen, Chen Yan, Xiaoyu Ji, Wenyuan Xu
 
@@ -85,12 +85,12 @@ Zizhi Jin, **Xuancun Lu**, Bo Yang,Yushi Chen, Chen Yan, Xiaoyu Ji, Wenyuan Xu
 <div class='paper-box'><div class='paper-box-image'><div><div class="badge">NDSS 2024</div><img src='images/IAP-500x300.png' alt="sym" width="100%"></div></div>
 <div class='paper-box-text' markdown="1">
 
-[Inaudible Adversarial Perturbation: Manipulating the Recognition of User Speech in Real Time](https://arxiv.org/abs/2308.01040)
+<div class="paper-title">Inaudible Adversarial Perturbation: Manipulating the Recognition of User Speech in Real Time</div>
 
 Xinfeng Li, Chen Yan, **Xuancun Lu**, Zihan Zeng, Xiaoyu Ji, Wenyuan Xu
 
 <div class="paper-links">
-<a href="https://arxiv.org/abs/2308.01040"><i class="fas fa-file-pdf"></i>Paper</a>
+<a href="https://arxiv.org/abs/2308.01040"><i class="ai ai-arxiv"></i>Paper</a>
 <a href="https://github.com/LetterLiGo/Adversarial_Audio_Attack-VRifle"><i class="fab fa-github"></i>Code</a>
 </div>
 
