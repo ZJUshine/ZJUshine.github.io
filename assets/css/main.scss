@@ -87,8 +87,34 @@
 
 }
 
+.paper-links {
+    margin: .4em 0 .6em 0;
+
+    a {
+        display: inline-block;
+        margin: .2em .4em .2em 0;
+        padding: .15em .7em;
+        border: 1px solid #00369f;
+        border-radius: 1em;
+        color: #00369f;
+        font-size: .8em;
+        text-decoration: none;
+        white-space: nowrap;
+
+        &:hover {
+            color: white;
+            background-color: #00369f;
+            text-decoration: none;
+        }
+
+        i {
+            margin-right: .35em;
+        }
+    }
+}
+
 $scroll_offset : 2em;
-h1:before, .anchor:before { 
+h1:before, .anchor:before {
     content: ''; 
     display: block; 
     position: relative; 
