@@ -19,10 +19,16 @@ redirect_from:
 
 I graduated from EE College, Zhejiang University (浙江大学电气学院) with a bachelor’s degree and now studying for PhD in <a href="http://usslab.org">USSLAB</a>, advised by Prof. <a href="https://sites.google.com/site/xiaoyuijh/home">Xiaoyu Ji (冀晓宇)</a> and Prof. <a href="https://sites.google.com/view/xuwenyuan/">Wenyuan Xu (徐文渊)</a>.
 
-My research interest includes the embodied AI security and safety. I have published 6 paper at the CCF-A conferences with total <a href='https://scholar.google.com/citations?user=cz6jVd0AAAAJ'><img src="https://img.shields.io/endpoint?url={{ url | url_encode }}&logo=Google%20Scholar&labelColor=f6f6f6&color=9cf&style=flat&label=citations"></a>.
+My research focuses on embodied AI security and safety, especially in the following research directions:
+
+- **Red-teaming for Embodied AI**: uncovering how embodied AI systems can be steered into unsafe behavior, and measuring comprehensive risks across perception, planning, and execution.
+- **Safety Alignment for Embodied AI**: extending safety alignment from LLMs/VLMs to VLAs/WAMs, so that embodied AI systems act in accordance with human values.
+- **Defense for Embodied AI Systems**: building safeguards across the whole pipeline, from proactive filtering of unsafe inputs to post-hoc detection of unsafe behavior.
+
+My work has appeared in security and AI venues including NDSS, ACM CCS, AAAI, and WWW. I have published 6 papers at CCF-A conferences with total <a href='https://scholar.google.com/citations?user=cz6jVd0AAAAJ'><img src="https://img.shields.io/endpoint?url={{ url | url_encode }}&logo=Google%20Scholar&labelColor=f6f6f6&color=9cf&style=flat&label=citations"></a>.
 
 # 🔥 News
-- *2026.07*: &nbsp;🎉🎉 NDSS 2027, Easier Said Than Done: Unpacking Intent–Behavior Gap in Jailbreaking LLM-based Robot.
+- *2026.07*: &nbsp;🎉🎉 NDSS 2027, Easier Said Than Done: Unpacking the Intent–Behavior Gap in Jailbreaking LLM-based Robots.
 - *2026.04*: &nbsp;🎉🎉 CCS 2026, GhostTac: Manipulating Tactile Sensors without Physical Contact.
 - *2025.11*: &nbsp;🎉🎉 AAAI 2026, Phantom Menace: Exploring and Enhancing the Robustness of VLA Models against Physical Sensor Attacks.
 - *2024.09*: &nbsp;🎉🎉 NDSS 2025, PhantomLiDAR: Cross-modality Signal Injection Attacks against LiDAR.
@@ -34,9 +40,16 @@ My research interest includes the embodied AI security and safety. I have publis
 <div class='paper-box'><div class='paper-box-image'><div><div class="badge">NDSS 2027</div><img src='images/POEF.png' alt="sym" width="100%"></div></div>
 <div class='paper-box-text' markdown="1">
 
-<div class="paper-title">Easier Said Than Done: Unpacking Intent–Behavior Gap in Jailbreaking LLM-based Robot</div>
+<div class="paper-title">Easier Said Than Done: Unpacking the Intent–Behavior Gap in Jailbreaking LLM-based Robots</div>
 
 **Xuancun Lu**, Zhengxian Huang, Xinfeng Li, Chi Zhang, Xiaoyu Ji, Wenyuan Xu
+
+<div class="paper-links">
+<a href="https://arxiv.org/abs/2412.16633"><i class="ai ai-arxiv"></i>Paper</a>
+<a href="https://zjushine.github.io/poef.github.io/"><i class="fas fa-globe"></i>Homepage</a>
+<a href="https://github.com/ZJUshine/POEF"><i class="fab fa-github"></i>Code</a>
+<a href="https://github.com/ZJUshine/Harmful-Behavior"><i class="fas fa-database"></i>Dataset</a>
+</div>
 
 - We reveal an *intent–behavior gap* in jailbreaking LLM-based robots: malicious-looking policies rarely translate into harmful physical executions, because existing attacks overlook robot-specific syntax constraints and physical feasibility. We propose POEF, an automated red-teaming framework that embeds these constraints into both prompt optimization and evaluation, achieving an 80% behavior jailbreak success rate on the Unitree G1, the Franka arm, and simulators, and we present two defenses.
 </div>
