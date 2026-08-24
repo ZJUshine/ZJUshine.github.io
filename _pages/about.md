@@ -65,6 +65,7 @@ Kun Wang, **Xuancun Lu**, Ruochen Zhou, Kai Wang, Tongjun Ye, Yihao Shao, Chen Y
 <div class="paper-links">
 <a href="https://arxiv.org/abs/2608.20817"><i class="ai ai-arxiv"></i>Paper</a>
 <a href="https://ghosttac.github.io/GhostTacCCS.io/"><i class="fas fa-globe"></i>Homepage</a>
+</div>
 
 - We present GhostTac, the first contactless attack that manipulates tactile sensing via electromagnetic interference (EMI). By exploiting nonlinear rectification and limited-bandwidth amplification, crafted EMI signals become a persistent DC offset that bypasses on-board filtering, enabling fine-grained control over sensor outputs and inducing harmful robot behaviors such as excessive grasping force. We validate GhostTac on 15 tactile sensors across 10 modules and 2 dexterous hands, with case studies on grasping, slip detection, and material classification.
 </div>
